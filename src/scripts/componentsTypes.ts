@@ -6,6 +6,7 @@ export enum ComponentName {
   APP_TEXT = 'AppText',
   APP_MODAL = 'AppModal',
   APP_POPOVER = 'AppPopover',
+  APP_CHECKBOX = 'AppCheckbox',
 
   FORM_INPUT_FIELD = 'FormInputField',
   FORM_ERROR = 'FormError',

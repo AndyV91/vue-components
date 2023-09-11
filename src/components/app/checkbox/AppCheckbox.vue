@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/valid-v-model -->
 <script setup lang="ts" generic="T, TValue extends T">
 import {
   Switch,
@@ -6,6 +5,7 @@ import {
   SwitchGroup,
   SwitchLabel,
 } from '@headlessui/vue'
+import AppIcon from '@/components/app/icon/AppIcon.vue'
 
 interface Props {
   option: T
@@ -28,24 +28,19 @@ const model = defineModel<T[keyof T]>()
     <SwitchGroup>
       <div>
         <SwitchLabel class="text-body font-medium">
-          Enable notifications
+          {{ (option as any)[optionLabel] }}
         </SwitchLabel>
         <SwitchDescription class="text-subtext">
-          Description
+          {{ (option as any)[optionDescription] }}
         </SwitchDescription>
       </div>
-      <Switch
-        v-slot="{ checked }"
-        v-model="(model as any)"
-        :class="checked ? 'bg-teal-900' : 'bg-teal-700'"
-        class="relative inline-flex h-[38px] w-[74px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-      >
-        <span class="sr-only">Use setting</span>
-        <span
-          aria-hidden="true"
-          :class="checked ? 'translate-x-9' : 'translate-x-0'"
-          class="pointer-events-none inline-block h-[34px] w-[34px] transform rounded-full bg-white ring-0 transition duration-200 ease-in-out"
-        />
+      <!-- eslint-disable-next-line vue/valid-v-model -->
+      <Switch v-slot="{ checked }" v-model="(model as any)">
+        <button
+          class="flex h-6 w-6 items-center justify-center rounded bg-neutral-800 text-white"
+        >
+          <AppIcon v-if="checked" icon="checkmark" />
+        </button>
       </Switch>
     </SwitchGroup>
   </div>

@@ -10,6 +10,7 @@ import { formInputGroupComposable } from './components/form/formInputGroupCompos
 import { transitionExpand } from './components/transitions/transitionExpand'
 import type { Component } from './componentsTypes'
 import { utilsGenerateUuid } from './components/utils/utilsGenerateUuid'
+import { appCheckbox } from '@/scripts/components/app/appCheckbox'
 
 export const components: Component[] = [
   appButton,
@@ -17,6 +18,7 @@ export const components: Component[] = [
   appText,
   appPopover,
   appIcon,
+  appCheckbox,
 
   formError,
   formInputField,
